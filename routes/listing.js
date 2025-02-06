@@ -11,10 +11,6 @@ const multer = require("multer");
 const { storage, cloudinary } = require("../cloudConfig.js");
 const upload = multer({ storage, limits: { fileSize: 5 * 1024 * 1024 } });
 
-router.get("/", (req, res) => {
-  res.redirect("/listings");
-});
-
 router
   .route("/")
   .get(wrapAsync(listingController.index))
